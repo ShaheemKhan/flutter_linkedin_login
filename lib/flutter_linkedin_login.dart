@@ -37,6 +37,12 @@ class FlutterLinkedinLogin {
     Map profile = json.decode(response);
     return new LinkedInProfile.fromJson(profile);
   }
+
+  static Future<String> getToken() async {
+    String response = await _channel.invokeMethod("getToken");
+    return response;
+  }
+
 }
 
 class LinkedInProfile {
